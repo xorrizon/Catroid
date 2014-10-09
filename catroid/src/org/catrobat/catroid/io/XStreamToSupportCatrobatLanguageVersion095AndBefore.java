@@ -30,6 +30,7 @@ import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider
 
 import org.catrobat.catroid.content.BroadcastScript;
 import org.catrobat.catroid.content.StartScript;
+import org.catrobat.catroid.content.WhenNfcScript;
 import org.catrobat.catroid.content.WhenScript;
 import org.catrobat.catroid.content.bricks.Brick.BrickField;
 import org.catrobat.catroid.content.bricks.BroadcastBrick;
@@ -100,6 +101,7 @@ import org.catrobat.catroid.content.bricks.TurnRightBrick;
 import org.catrobat.catroid.content.bricks.VibrationBrick;
 import org.catrobat.catroid.content.bricks.WaitBrick;
 import org.catrobat.catroid.content.bricks.WhenBrick;
+import org.catrobat.catroid.content.bricks.WhenNfcBrick;
 import org.catrobat.catroid.content.bricks.WhenStartedBrick;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -371,10 +373,13 @@ public class XStreamToSupportCatrobatLanguageVersion095AndBefore extends XStream
 		brickInfoMap.put("waitBrick", brickInfo);
 
 		brickInfo = new BrickInfo(WhenBrick.class.getSimpleName());
-		brickInfoMap.put("stopAllSoundsBrick", brickInfo);
+		brickInfoMap.put("whenBrick", brickInfo);
 
 		brickInfo = new BrickInfo(WhenStartedBrick.class.getSimpleName());
 		brickInfoMap.put("whenStartedBrick", brickInfo);
+
+		brickInfo = new BrickInfo(WhenNfcBrick.class.getSimpleName());
+		brickInfoMap.put("whenNfcBrick", brickInfo);
 
 		brickInfo = new BrickInfo(DronePlayLedAnimationBrick.class.getSimpleName());
 		brickInfoMap.put("dronePlayLedAnimationBrick", brickInfo);
@@ -428,6 +433,7 @@ public class XStreamToSupportCatrobatLanguageVersion095AndBefore extends XStream
 		scriptInfoMap.put("startScript", StartScript.class.getSimpleName());
 		scriptInfoMap.put("whenScript", WhenScript.class.getSimpleName());
 		scriptInfoMap.put("broadcastScript", BroadcastScript.class.getSimpleName());
+		scriptInfoMap.put("whenNfcScript", WhenNfcScript.class.getSimpleName());
 	}
 
 	private void modifyXMLToSupportUnknownFields(File file) {

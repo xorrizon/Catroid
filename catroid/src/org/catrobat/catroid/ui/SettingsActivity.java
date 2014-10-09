@@ -46,6 +46,7 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 	public static final String SETTINGS_MINDSTORMS_NXT_SHOW_SENSOR_INFO_BOX_DISABLED = "settings_mindstorms_nxt_show_sensor_info_box_disabled";
 	public static final String SETTINGS_SHOW_PARROT_AR_DRONE_BRICKS = "setting_parrot_ar_drone_bricks";
 	private static final String SETTINGS_SHOW_PHIRO_BRICKS = "setting_enable_phiro_bricks";
+	public static final String SETTINGS_SHOW_NFC_BRICKS = "setting_nfc_bricks";
 	public static final String SETTINGS_PARROT_AR_DRONE_CATROBAT_TERMS_OF_SERVICE_ACCEPTED_PERMANENTLY = "setting_parrot_ar_drone_catrobat_terms_of_service_accepted_permanently";
 	PreferenceScreen screen = null;
 
@@ -110,6 +111,12 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 			phiroPreference.setEnabled(false);
 			screen.removePreference(phiroPreference);
 		}
+
+		if (!BuildConfig.FEATURE_NFC_ENABLED) {
+			CheckBoxPreference nfcPreference = (CheckBoxPreference) findPreference(SETTINGS_SHOW_NFC_BRICKS);
+			nfcPreference.setEnabled(false);
+			screen.removePreference(nfcPreference);
+		}
 	}
 
 	private void setNXTSensors() {
@@ -161,6 +168,16 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 	public static void setPhiroSharedPreferenceEnabled(Context context, boolean value) {
 		SharedPreferences.Editor editor = getSharedPreferences(context).edit();
 		editor.putBoolean(SETTINGS_SHOW_PHIRO_BRICKS, value);
+		editor.commit();
+	}
+
+	public static boolean isNfcSharedPreferenceEnabled(Context context) {
+		return getBooleanSharedPreference(false, SETTINGS_SHOW_NFC_BRICKS, context);
+	}
+
+	public static void setNfcSharedPreferenceEnabled(Context context, boolean value) {
+		SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+		editor.putBoolean(SETTINGS_SHOW_NFC_BRICKS, value);
 		editor.commit();
 	}
 
