@@ -31,6 +31,8 @@ import org.catrobat.catroid.common.BrickValues;
 import org.catrobat.catroid.common.MessageContainer;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.bricks.AddItemToUserListBrick;
+import org.catrobat.catroid.content.bricks.ArduinoIrBrick;
+import org.catrobat.catroid.content.bricks.ArduinoSendBrick;
 import org.catrobat.catroid.content.bricks.Brick;
 import org.catrobat.catroid.content.bricks.BroadcastBrick;
 import org.catrobat.catroid.content.bricks.BroadcastReceiverBrick;
@@ -134,6 +136,8 @@ public class CategoryBricksFactory {
 			tempList =  setupDataCategoryList();
 		} else if (category.equals(context.getString(R.string.category_lego_nxt))) {
 			tempList = setupLegoNxtCategoryList();
+		} else if (category.equals(context.getString(R.string.category_arduino))) {
+			tempList = setupArduinoCategoryList();
 		} else if (category.equals(context.getString(R.string.category_drone))) {
 			tempList = setupDroneCategoryList();
 		}
@@ -303,6 +307,14 @@ public class CategoryBricksFactory {
 
 		return legoNXTBrickList;
 	}
+
+	private List<Brick> setupArduinoCategoryList() {
+		List<Brick> arduinoBrickList = new ArrayList<Brick>();
+		arduinoBrickList.add(new ArduinoSendBrick());
+		arduinoBrickList.add(new ArduinoIrBrick("FFF"));
+		return arduinoBrickList;
+	}
+
 
 	private List<Brick> setupDroneCategoryList() {
 		List<Brick> droneBrickList = new ArrayList<Brick>();

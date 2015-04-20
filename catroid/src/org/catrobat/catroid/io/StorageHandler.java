@@ -764,6 +764,9 @@ public final class StorageHandler {
 		if ((resources & Brick.BLUETOOTH_LEGO_NXT) > 0) {
 			permissionsSet.add(Constants.BLUETOOTH_LEGO_NXT);
 		}
+		if ((resources & Brick.BLUETOOTH_SENSORS_ARDUINO) > 0) {
+			permissionsSet.add(Constants.BLUETOOTH_SENSORS_ARDUINO);
+		}
 		if ((resources & Brick.ARDRONE_SUPPORT) > 0) {
 			permissionsSet.add(Constants.ARDRONE_SUPPORT);
 		}

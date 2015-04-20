@@ -59,12 +59,6 @@ public class ArduinoSendBrick extends BrickBaseType implements OnItemSelectedLis
 	public ArduinoSendBrick() {
 	}
 
-	/*
-	public ArduinoSendBrick(Sprite sprite) {
-		this.sprite = sprite;
-	}
-    */
-
 	@Override
 	public int getRequiredResources() {
 		return BLUETOOTH_SENSORS_ARDUINO;
@@ -73,7 +67,6 @@ public class ArduinoSendBrick extends BrickBaseType implements OnItemSelectedLis
 	@Override
 	public Brick copyBrickForSprite(Sprite sprite) {
 		ArduinoSendBrick copyBrick = (ArduinoSendBrick) clone();
-		//copyBrick.sprite = sprite;
 		return copyBrick;
 	}
 
