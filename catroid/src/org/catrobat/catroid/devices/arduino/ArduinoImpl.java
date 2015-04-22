@@ -89,7 +89,9 @@ public class ArduinoImpl implements Arduino {
 	}
 
 	@Override
-	public void start() {}
+	public void start() {
+		initialise();
+	}
 
 	@Override
 	public void pause() {}

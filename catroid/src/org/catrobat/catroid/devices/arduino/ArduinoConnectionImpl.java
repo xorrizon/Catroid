@@ -23,6 +23,8 @@
 
 package org.catrobat.catroid.devices.arduino;
 
+import android.util.Log;
+
 import org.catrobat.catroid.bluetooth.base.BluetoothConnection;
 
 import java.io.DataInputStream;
@@ -50,6 +52,7 @@ public class ArduinoConnectionImpl implements ArduinoConnection {
 			isConnected = true;
 		} catch (IOException e) {
 			isConnected = false;
+			Log.d("KABOOOOOOOM", "exception", e);
 			//throw new ArduinoException(e, "Cannot establish BtConnection");
 		}
 	}
