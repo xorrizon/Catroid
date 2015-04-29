@@ -23,8 +23,6 @@
 package org.catrobat.catroid.common;
 
 import org.catrobat.catroid.bluetooth.base.BluetoothDeviceService;
-import org.catrobat.catroid.devices.arduino.Arduino;
-
 
 // CHECKSTYLE DISABLE InterfaceIsType FOR 1 LINES
 public interface CatroidService {

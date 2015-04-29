@@ -22,15 +22,13 @@
  */
 package org.catrobat.catroid.content.actions;
 
-import android.util.Log;
-
 import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 
 import org.catrobat.catroid.bluetooth.base.BluetoothDevice;
-import org.catrobat.catroid.devices.arduino.Arduino;
 import org.catrobat.catroid.common.CatroidService;
 import org.catrobat.catroid.common.ServiceProvider;
 import org.catrobat.catroid.content.Sprite;
+import org.catrobat.catroid.devices.arduino.Arduino;
 
 public class ArduinoSendAction extends TemporalAction {
 
@@ -53,7 +51,6 @@ public class ArduinoSendAction extends TemporalAction {
 	@Override
 	protected void update(float percent) {
 		Arduino arduino = ServiceProvider.getService(CatroidService.BLUETOOTH_DEVICE_SERVICE).getDevice(BluetoothDevice.ARDUINO);
-		if(arduino != null)
-			arduino.setDigitalArduinoPin(pinNumber, (char) pinValue);
+		if(arduino != null) { arduino.setDigitalArduinoPin(pinNumber, (char) pinValue); }
 	}
 }

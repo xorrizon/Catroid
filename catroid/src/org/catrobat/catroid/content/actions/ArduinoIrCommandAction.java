@@ -22,15 +22,13 @@
  */
 package org.catrobat.catroid.content.actions;
 
-import android.util.Log;
 import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 
 import org.catrobat.catroid.bluetooth.base.BluetoothDevice;
-import org.catrobat.catroid.bluetooth.base.BluetoothDeviceService;
-import org.catrobat.catroid.devices.arduino.Arduino;
 import org.catrobat.catroid.common.CatroidService;
 import org.catrobat.catroid.common.ServiceProvider;
 import org.catrobat.catroid.content.Sprite;
+import org.catrobat.catroid.devices.arduino.Arduino;
 
 
 public class ArduinoIrCommandAction extends TemporalAction {
@@ -45,12 +43,8 @@ public class ArduinoIrCommandAction extends TemporalAction {
 
 	@Override
 	protected void update(float percent) {
-		Log.d("Arduino IR Command", "BT command" + commandToSend);
-		// here the magic happens :-)
-
 		Arduino arduino = ServiceProvider.getService(CatroidService.BLUETOOTH_DEVICE_SERVICE).getDevice(BluetoothDevice.ARDUINO);
-		if(arduino != null)
-			arduino.sendArduinoMessage(commandToSend);
+		if(arduino != null) { arduino.sendArduinoMessage(commandToSend); }
 	}
 
 	public void setCommand(String command) {

@@ -97,7 +97,7 @@ public class ArduinoConnectionImpl implements ArduinoConnection {
 		byte[] payload;
 
 		try {
-			while(arduinoInputStream.readByte() != 126);
+			while(arduinoInputStream.readByte() != 126) { };
 			arduinoInputStream.readFully(expectedLength, 0, 1);
 			payload = new byte[expectedLength[0] - 48];
 

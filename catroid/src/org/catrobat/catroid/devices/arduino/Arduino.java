@@ -23,7 +23,6 @@
 package org.catrobat.catroid.devices.arduino;
 
 import org.catrobat.catroid.bluetooth.base.BluetoothDevice;
-import org.catrobat.catroid.formulaeditor.Sensors;
 
 public interface Arduino extends BluetoothDevice {
 

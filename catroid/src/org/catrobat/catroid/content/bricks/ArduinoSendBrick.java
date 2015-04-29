@@ -24,7 +24,6 @@ package org.catrobat.catroid.content.bricks;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -37,7 +36,6 @@ import android.widget.Spinner;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 
 import org.catrobat.catroid.R;
-import org.catrobat.catroid.content.Script;
 import org.catrobat.catroid.content.Sprite;
 import org.catrobat.catroid.content.actions.ExtendedActions;
 
@@ -163,8 +161,7 @@ public class ArduinoSendBrick extends BrickBaseType implements OnItemSelectedLis
 				String tempSavingString = "00";
 				tempSavingString = parent.getItemAtPosition(position).toString();
 
-				if(tempSavingString != "")
-					pinNumberString = tempSavingString;
+				if(tempSavingString != "") { pinNumberString = tempSavingString; }
 
 				if (tempSavingString.length() < 2) {
 					pinNumberLowerByte = '0';
