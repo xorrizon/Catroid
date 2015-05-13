@@ -57,6 +57,12 @@ public class ArduinoSendBrick extends BrickBaseType implements OnItemSelectedLis
 	public ArduinoSendBrick() {
 	}
 
+	public ArduinoSendBrick(int copyValueSpinnerPosition, int copyPinSpinnerPosition, int copyPinValue) {
+		valueSpinnerPosition = copyValueSpinnerPosition;
+		pinSpinnerPosition = copyPinSpinnerPosition;
+		pinValue = copyPinValue;
+	}
+
 	@Override
 	public int getRequiredResources() {
 		return BLUETOOTH_SENSORS_ARDUINO;
@@ -97,12 +103,11 @@ public class ArduinoSendBrick extends BrickBaseType implements OnItemSelectedLis
 
 	}
 
+
 	@Override
 	public Brick clone() {
-		//return new ArduinoSendBrick(getSprite());
-		return new ArduinoSendBrick();
+		return new ArduinoSendBrick(valueSpinnerPosition, pinSpinnerPosition, pinValue);
 	}
-
 	@Override
 	public View getView(Context context, int brickId, BaseAdapter baseAdapter) {
 		if (animationState) {
